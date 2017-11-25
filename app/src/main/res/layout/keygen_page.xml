@@ -12,6 +12,14 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:id="@+id/backbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:text="Home"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/keytext"
         android:layout_width="wrap_content"

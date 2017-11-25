@@ -14,6 +14,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        android:id="@+id/updateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:text="Add Information"
+        android:onClick="onUpdateInfoForm"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"

@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Random;
 
 /**
@@ -22,18 +25,25 @@ public class KeyGenPage extends AppCompatActivity {
         Button KeyGen = (Button) findViewById(R.id.generatekey);
         KeyGen.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                generateKey();
+                publishKey(generateKey());
+            }
+        });
+
+        Button backbutton = (Button) findViewById(R.id.backbutton);
+        backbutton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(KeyGenPage.this, HomePage.class);
+                startActivity(intent);
             }
         });
     }
 
 
-
-
-
-    private void generateKey(){
+    private String generateKey(){
         TextView KeyGen = (TextView) findViewById(R.id.keytext);
-        KeyGen.setText(getKey());
+        String key = getKey();
+        KeyGen.setText(key);
+        return key;
     }
 
     private String getKey(){
@@ -45,5 +55,13 @@ public class KeyGenPage extends AppCompatActivity {
             stringKey.append(newChar);
         }
         return stringKey.toString();
+    }
+
+    private void publishKey(String key){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference setRef = database.getReference("people");
+        DatabaseReference setSubRef = setRef.child(key);
+
+        setSubRef.setValue("key");
     }
 }
