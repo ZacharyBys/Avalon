@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.util.List;
 
 public class HomePage extends AppCompatActivity {
 
@@ -70,23 +71,56 @@ public class HomePage extends AppCompatActivity {
         editTextEmail.setHint("Email");
         layout.addView(editTextEmail);
 
+        final EditText editTextCity = new EditText(getApplicationContext());
+        editTextCity.setHint("Enter City");
+        layout.addView(editTextCity);
+
+        final EditText editTextAddress = new EditText(getApplicationContext());
+        editTextAddress.setHint("Enter Address");
+        layout.addView(editTextAddress);
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                Geocoder coder = new Geocoder(HomePage.this);
+                double longitude = 0.0;
+                double latitude = 0.0;
+
                 String key = String.valueOf(userKey.getText());
                 String name= String.valueOf(editTextName.getText());
                 String lastName = String.valueOf(editTextLastName.getText());
                 String phoneNum = String.valueOf(editTextPhone.getText());
                 String email = String.valueOf(editTextEmail.getText());
+                String city = String.valueOf(editTextCity.getText());
+                String address = String.valueOf(editTextAddress.getText());
 
-                updateInfo(key, name, lastName, phoneNum, email);
+                try {
+                    List<Address> addresses = coder.getFromLocationName(address + city, 6);
+
+                    if(addresses.size() == 0)
+                        return;
+
+                    Address location = addresses.get(0);
+                    if(location == null)
+                        location = null;
+                    else{
+                        latitude = location.getLatitude();
+                        longitude = location.getLongitude();
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    return;
+                }
+
+                addInfo(key, name, lastName, phoneNum, email,latitude,longitude);
             }
         });
 
         builder.show();
     }
 
-    private void updateInfo(String key, String firstName, String lastName, String phoneNum, String email){
+    private void addInfo(String key, String firstName, String lastName, String phoneNum, String email, double latitude, double longitude){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference setRef = database.getReference("people");
@@ -95,11 +129,15 @@ public class HomePage extends AppCompatActivity {
         DatabaseReference lastNameRef = keyRef.child("Last Name");
         DatabaseReference phoneNumRef = keyRef.child("Phone Number");
         DatabaseReference emailRef = keyRef.child("Email");
+        DatabaseReference latRef = keyRef.child("Latitude");
+        DatabaseReference longRef = keyRef.child("Longitude");
 
         nameRef.setValue(firstName);
         lastNameRef.setValue(lastName);
         phoneNumRef.setValue(phoneNum);
         emailRef.setValue(email);
+        latRef.setValue(Double.toString(latitude));
+        longRef.setValue(Double.toString(longitude));
 
     }
 
