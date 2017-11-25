@@ -51,6 +51,14 @@ public class UpdateInfoPage extends AppCompatActivity {
             }
         });
 
+        Button backbutton = (Button) findViewById(R.id.backbutton);
+        backbutton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateInfoPage.this, HomePage.class);
+                startActivity(intent);
+            }
+        });
+
         Button updateAddress = (Button) findViewById(R.id.updateAddress);
         updateAddress.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
