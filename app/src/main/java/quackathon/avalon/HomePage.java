@@ -34,10 +34,18 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        Button addInfo = (Button) findViewById(R.id.addInfo);
+        addInfo.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                onAddInfoForm();
+            }
+        });
+
         Button updateInfo = (Button) findViewById(R.id.updateInfo);
         updateInfo.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                onAddInfoForm();
+                Intent intent = new Intent(HomePage.this, UpdateInfoPage.class);
+                startActivity(intent);
             }
         });
 

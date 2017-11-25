@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/updateName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Name"
+        android:onClick="onUpdateInfoForm"
+        android:layout_marginTop="130dp"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/updatePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Phone Number"
+        android:layout_marginTop="20dp"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updateName"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/updateEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Email"
+        android:layout_marginTop="20dp"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updatePhone"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/updateAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Update Address"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updateEmail"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
