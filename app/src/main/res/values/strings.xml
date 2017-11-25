@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Avalon</string>
+    <string name="key_title">Click here to go to the key generator</string>
 </resources>
