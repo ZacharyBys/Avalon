@@ -41,8 +41,15 @@
         android:layout_marginTop="200dp"
         android:text="Update Your Information"
         android:onClick="onUpdateInfoForm"
+<<<<<<< HEAD
         android:background="@drawable/border"
         android:layout_centerHorizontal="true" />
+=======
+        android:layout_below="@+id/addInfo"
+        android:background="@drawable/border"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
+>>>>>>> b2e1eb68ccf27af3f3b7bff5ee570a28ec8c6a0c
 
     <TextView
         android:id="@+id/textView2"
