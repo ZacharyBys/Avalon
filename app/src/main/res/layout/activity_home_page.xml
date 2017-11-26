@@ -9,9 +9,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:src="@drawable/logo"
         android:maxHeight="50sp"
-        android:maxWith="50sp"
+        android:maxWidth="50sp"
         />
 
     <Button

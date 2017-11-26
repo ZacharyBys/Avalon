@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <TextView
+    <EditText
         android:id="@+id/userKey"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="242dp"
         android:gravity="center"
-        android:text="Enter User Key" />
+        android:hint="Enter User Key" />
 
     <Button
         android:id="@+id/loginButton"
