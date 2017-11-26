@@ -31,6 +31,7 @@ public class KeyGenPage extends AppCompatActivity {
         setContentView(R.layout.keygen_page);
 
         Button backbutton = (Button) findViewById(R.id.backbutton);
+        backbutton.bringToFront();
         backbutton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(KeyGenPage.this, HomePage.class);
@@ -39,6 +40,7 @@ public class KeyGenPage extends AppCompatActivity {
         });
 
         Button addInfo = (Button) findViewById(R.id.addInfo);
+        addInfo.bringToFront();
         addInfo.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 onAddInfoForm();
