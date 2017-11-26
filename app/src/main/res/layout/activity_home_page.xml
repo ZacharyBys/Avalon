@@ -11,8 +11,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:src="@drawable/logo"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
         />
 
     <Button
