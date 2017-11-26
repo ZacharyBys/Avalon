@@ -1,13 +1,23 @@
 package quackathon.avalon;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.NotificationCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +29,9 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Random;
@@ -32,6 +45,7 @@ public class KeyGenPage extends AppCompatActivity {
 
     public Typeface ralewayReg;
     public Typeface ralewayBold;
+    public File imagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +73,9 @@ public class KeyGenPage extends AppCompatActivity {
                 "fonts/Raleway-Regular.ttf");
         ralewayBold = Typeface.createFromAsset(getAssets(),
                 "fonts/Raleway-Bold.ttf");
-
+        TextView KeyGen = (TextView) findViewById(R.id.keytext);
+        KeyGen.bringToFront();
+        KeyGen.setTypeface(ralewayReg);
         addInfo.setTypeface(ralewayBold);
     }
 
@@ -172,6 +188,8 @@ public class KeyGenPage extends AppCompatActivity {
 
                 addInfo(key, name, lastName, phoneNum, email,latitude,longitude,children,marital);
                 showKey(key);
+                sendNotification(key);
+
             }
         });
 
@@ -203,5 +221,18 @@ public class KeyGenPage extends AppCompatActivity {
         childRef.setValue(children);
         maritalRef.setValue(marital);
         changedRef.setValue("false");
+    }
+
+    public void sendNotification(String key) {
+
+        NotificationCompat.Builder mBuilder = (NotificationCompat.Builder) new NotificationCompat.Builder(this)
+                        .setSmallIcon(R.drawable.goodgreenlogo)
+                        .setContentTitle("Your Avalon User Key")
+                        .setContentText(key);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.notify(001, mBuilder.build());
+
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        v.vibrate(800);
     }
 }

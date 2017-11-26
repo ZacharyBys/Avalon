@@ -3,6 +3,7 @@ package quackathon.avalon;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -34,6 +35,9 @@ import java.util.Random;
 public class LogInPage extends AppCompatActivity {
     private boolean shouldLogin;
     private String key;
+
+    public Typeface ralewayReg;
+    public Typeface ralewayBold;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +78,14 @@ public class LogInPage extends AppCompatActivity {
             }
         });
 
+        ralewayReg = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Regular.ttf");
+        ralewayBold = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Bold.ttf");
+
         EditText enteredKey = (EditText)findViewById(R.id.userKey);
         enteredKey.bringToFront();
+        enteredKey.setTypeface(ralewayReg);
         enteredKey.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
@@ -84,6 +94,8 @@ public class LogInPage extends AppCompatActivity {
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
         });
+
+        loginButton.setTypeface(ralewayBold);
     }
 
     private void checkId(){

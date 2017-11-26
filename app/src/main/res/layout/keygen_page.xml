@@ -16,13 +16,13 @@
 
     <TextView
         android:id="@+id/keytext"
-        android:layout_width="250dp"
+        android:layout_width="285dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/addInfo"
         android:layout_marginBottom="-250dp"
         android:textSize="25dp"
         android:layout_centerHorizontal="true"
-        android:text="" />
+        android:text="@string/description" />
 
     <Button
         android:id="@+id/addInfo"
