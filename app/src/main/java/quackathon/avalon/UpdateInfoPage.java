@@ -3,6 +3,7 @@ package quackathon.avalon;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -29,6 +30,8 @@ import java.util.Random;
 public class UpdateInfoPage extends AppCompatActivity {
 
     private String key;
+    public Typeface ralewayReg;
+    public Typeface ralewayBold;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +96,18 @@ public class UpdateInfoPage extends AppCompatActivity {
                 updateMarital();
             }
         });
+
+        ralewayReg = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Regular.ttf");
+        ralewayBold = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Bold.ttf");
+
+        updateName.setTypeface(ralewayBold);
+        updatePhone.setTypeface(ralewayBold);
+        updateEmail.setTypeface(ralewayBold);
+        updateAddress.setTypeface(ralewayBold);
+        updateChildren.setTypeface(ralewayBold);
+        updateMarital.setTypeface(ralewayBold);
     }
 
     private void updateName(){
