@@ -156,6 +156,13 @@ public class KeyGenPage extends AppCompatActivity {
         editTextMaritalStatus.setHint("Enter Marital Status");
         layout.addView(editTextMaritalStatus);
 
+        layout.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                hideKeyboard(v);
+            }
+        });
 
 
         builder.setView(layout);
@@ -243,5 +250,10 @@ public class KeyGenPage extends AppCompatActivity {
 
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
         v.vibrate(800);
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(KeyGenPage.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }
