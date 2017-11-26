@@ -3,7 +3,7 @@
     android:layout_width="match_parent" android:layout_height="match_parent">
 
 
-    <TextView
+    <EditTest
         android:id="@+id/userKey"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
@@ -20,7 +20,19 @@
         android:layout_below="@+id/userKey"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="118dp"
-        android:text="Login" />
+        android:text="Login"
+        android:background="@drawable/border"
+        />
 
+    <ImageView
+        android:id="@+id/rootRL"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/greentuff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        />
 
 </RelativeLayout>
