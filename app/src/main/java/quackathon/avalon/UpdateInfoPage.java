@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -60,7 +61,7 @@ public class UpdateInfoPage extends AppCompatActivity {
             }
         });
 
-        Button backbutton = (Button) findViewById(R.id.backbutton);
+        ImageButton backbutton = (ImageButton) findViewById(R.id.backbutton);
         backbutton.bringToFront();
         backbutton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {

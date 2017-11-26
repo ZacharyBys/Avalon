@@ -17,7 +17,6 @@
         />
 
     <Button
-
         android:background="@drawable/border"
         android:id="@+id/keygen"
         android:layout_width="wrap_content"

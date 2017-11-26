@@ -2,15 +2,26 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
+    <ImageButton
+        android:id="@+id/backbutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:background="@drawable/crackhouse" />
+
     <EditText
         android:id="@+id/userKey"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="242dp"
         android:background="@drawable/textedit"
-        android:maxLength="6"
+        android:maxLength="7"
         android:gravity="center"
         android:hint="Enter User Key" />
 
@@ -20,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/userKey"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="118dp"
+        android:layout_marginTop="150dp"
         android:text="Login"
         android:background="@drawable/border"
         />

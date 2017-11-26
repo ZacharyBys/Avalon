@@ -12,6 +12,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -38,6 +39,15 @@ public class LogInPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_page);
+
+        ImageButton backbutton = (ImageButton) findViewById(R.id.backbutton);
+        backbutton.bringToFront();
+        backbutton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(LogInPage.this, HomePage.class);
+                startActivity(intent);
+            }
+        });
 
         Button loginButton = (Button) findViewById(R.id.loginButton);
         loginButton.bringToFront();
