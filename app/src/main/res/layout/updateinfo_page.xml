@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:text="Update Name"
         android:onClick="onUpdateInfoForm"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="80dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -48,6 +48,24 @@
         android:text="Update Address"
         android:onClick="onUpdateInfoForm"
         android:layout_below="@+id/updateEmail"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/updateChildren"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Update Children"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updateAddress"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/updateMarital"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Update Marital Status"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updateChildren"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

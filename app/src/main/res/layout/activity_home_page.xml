@@ -14,7 +14,7 @@
         />
 
     <Button
-        android:background="@drawable/Border"
+        android:background="@drawable/border"
         android:id="@+id/keygen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         android:text="Update Your Information"
         android:onClick="onUpdateInfoForm"
         android:layout_below="@+id/addInfo"
-        android:background="@drawable/Border"
+        android:background="@drawable/border"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"/>
 

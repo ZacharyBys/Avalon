@@ -87,6 +87,14 @@ public class HomePage extends AppCompatActivity {
         editTextAddress.setHint("Enter Address");
         layout.addView(editTextAddress);
 
+        final EditText editTextChildren = new EditText(getApplicationContext());
+        editTextChildren.setHint("Enter Number of Children");
+        layout.addView(editTextChildren);
+
+        final EditText editTextMaritalStatus = new EditText(getApplicationContext());
+        editTextMaritalStatus.setHint("Enter Marital Status");
+        layout.addView(editTextMaritalStatus);
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -101,6 +109,8 @@ public class HomePage extends AppCompatActivity {
                 String email = String.valueOf(editTextEmail.getText());
                 String city = String.valueOf(editTextCity.getText());
                 String address = String.valueOf(editTextAddress.getText());
+                String children = String.valueOf(editTextChildren.getText());
+                String marital = String.valueOf(editTextMaritalStatus.getText());
 
                 try {
                     List<Address> addresses = coder.getFromLocationName(address + city, 6);
@@ -121,14 +131,15 @@ public class HomePage extends AppCompatActivity {
                     return;
                 }
 
-                addInfo(key, name, lastName, phoneNum, email,latitude,longitude);
+                addInfo(key, name, lastName, phoneNum, email,latitude,longitude,children,marital);
             }
         });
 
         builder.show();
     }
 
-    private void addInfo(String key, String firstName, String lastName, String phoneNum, String email, double latitude, double longitude){
+    private void addInfo(String key, String firstName, String lastName, String phoneNum, String email, double latitude, double longitude
+    , String children, String marital){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference setRef = database.getReference("people");
@@ -139,6 +150,9 @@ public class HomePage extends AppCompatActivity {
         DatabaseReference emailRef = keyRef.child("Email");
         DatabaseReference latRef = keyRef.child("Latitude");
         DatabaseReference longRef = keyRef.child("Longitude");
+        DatabaseReference childRef = keyRef.child("Children");
+        DatabaseReference maritalRef = keyRef.child("Marital Status");
+        DatabaseReference changedRef = keyRef.child("Changed");
 
         nameRef.setValue(firstName);
         lastNameRef.setValue(lastName);
@@ -146,7 +160,9 @@ public class HomePage extends AppCompatActivity {
         emailRef.setValue(email);
         latRef.setValue(Double.toString(latitude));
         longRef.setValue(Double.toString(longitude));
-
+        childRef.setValue(children);
+        maritalRef.setValue(marital);
+        changedRef.setValue("false");
     }
 
 }
