@@ -389,4 +389,5 @@ public class UpdateInfoPage extends AppCompatActivity {
         maritalRef.setValue(marital);
         changedRef.setValue(changed);
     }
+
 }
