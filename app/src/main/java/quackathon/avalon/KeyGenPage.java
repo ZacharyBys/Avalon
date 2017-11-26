@@ -123,7 +123,7 @@ public class KeyGenPage extends AppCompatActivity {
         final String key = getKey();
         userKey.setText("Your User Key: " + key);
         layout.addView(userKey);
-        
+
         final EditText editTextName = new EditText(getApplicationContext());
         editTextName.setHint("First Name");
         layout.addView(editTextName);
