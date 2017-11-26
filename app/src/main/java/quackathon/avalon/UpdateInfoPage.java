@@ -1,15 +1,20 @@
 package quackathon.avalon;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,7 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -25,12 +32,20 @@ import java.util.Random;
  */
 
 public class UpdateInfoPage extends AppCompatActivity {
+
+    private String key;
+    public Typeface ralewayReg;
+    public Typeface ralewayBold;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updateinfo_page);
+        Bundle bundle=getIntent().getExtras();
+        key = bundle.getString("key");
 
         Button updateName = (Button) findViewById(R.id.updateName);
+        updateName.bringToFront();
         updateName.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateName();
@@ -38,6 +53,7 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updatePhone = (Button) findViewById(R.id.updatePhone);
+        updatePhone.bringToFront();
         updatePhone.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updatePhone();
@@ -45,13 +61,15 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updateEmail = (Button) findViewById(R.id.updateEmail);
+        updateEmail.bringToFront();
         updateEmail.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateEmail();
             }
         });
 
-        Button backbutton = (Button) findViewById(R.id.backbutton);
+        ImageButton backbutton = (ImageButton) findViewById(R.id.backbutton);
+        backbutton.bringToFront();
         backbutton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(UpdateInfoPage.this, HomePage.class);
@@ -59,12 +77,49 @@ public class UpdateInfoPage extends AppCompatActivity {
             }
         });
 
+        ImageButton alertbutton = (ImageButton) findViewById(R.id.alertbutton);
+        alertbutton.bringToFront();
+        alertbutton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                sendNotificationToUser();
+            }
+        });
+
         Button updateAddress = (Button) findViewById(R.id.updateAddress);
+        updateAddress.bringToFront();
         updateAddress.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateAddress();
             }
         });
+
+        Button updateChildren = (Button) findViewById(R.id.updateChildren);
+        updateChildren.bringToFront();
+        updateChildren.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                updateChildren();
+            }
+        });
+
+        Button updateMarital = (Button) findViewById(R.id.updateMarital);
+        updateMarital.bringToFront();
+        updateMarital.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                updateMarital();
+            }
+        });
+
+        ralewayReg = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Regular.ttf");
+        ralewayBold = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Bold.ttf");
+
+        updateName.setTypeface(ralewayBold);
+        updatePhone.setTypeface(ralewayBold);
+        updateEmail.setTypeface(ralewayBold);
+        updateAddress.setTypeface(ralewayBold);
+        updateChildren.setTypeface(ralewayBold);
+        updateMarital.setTypeface(ralewayBold);
     }
 
     private void updateName(){
@@ -74,10 +129,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextName = new EditText(getApplicationContext());
         editTextName.setHint("First Name");
         layout.addView(editTextName);
@@ -86,14 +137,18 @@ public class UpdateInfoPage extends AppCompatActivity {
         editTextLastName.setHint("Last Name");
         layout.addView(editTextLastName);
 
+        final CheckBox changedCheck = new CheckBox(getApplicationContext());
+        changedCheck.setHint("Alert Refugee Center of Change?");
+        layout.addView(changedCheck);
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String name= String.valueOf(editTextName.getText());
                 String lastName = String.valueOf(editTextLastName.getText());
+                String changed = String.valueOf(changedCheck.isChecked());
 
-                pushNewName(key, name, lastName);
+                pushNewName(key, name, lastName, changed);
             }
         });
 
@@ -107,21 +162,77 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextPhone = new EditText(getApplicationContext());
         editTextPhone.setHint("Phone Number");
         layout.addView(editTextPhone);
 
+        final CheckBox changedCheck = new CheckBox(getApplicationContext());
+        changedCheck.setHint("Alert Refugee Center of Change?");
+        layout.addView(changedCheck);
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String phone = String.valueOf(editTextPhone.getText());
+                String changed = String.valueOf(changedCheck.isChecked());
 
-                pushNewPhone(key, phone);
+                pushNewPhone(key, phone, changed);
+            }
+        });
+
+        builder.show();
+    }
+
+    private void updateChildren(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Update Your Number of Children");
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        final EditText editTextPhone = new EditText(getApplicationContext());
+        editTextPhone.setHint("Number of Children");
+        layout.addView(editTextPhone);
+
+        final CheckBox changedCheck = new CheckBox(getApplicationContext());
+        changedCheck.setHint("Alert Refugee Center of Change?");
+        layout.addView(changedCheck);
+
+        builder.setView(layout);
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                String children = String.valueOf(editTextPhone.getText());
+                String changed = String.valueOf(changedCheck.isChecked());
+
+                pushChildren(key, children, changed);
+            }
+        });
+
+        builder.show();
+    }
+
+    private void updateMarital(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Update Your Marital Status");
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        final EditText editTextPhone = new EditText(getApplicationContext());
+        editTextPhone.setHint("Marital Status");
+        layout.addView(editTextPhone);
+
+        final CheckBox changedCheck = new CheckBox(getApplicationContext());
+        changedCheck.setHint("Alert Refugee Center of Change?");
+        layout.addView(changedCheck);
+
+        builder.setView(layout);
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                String maritalStatus = String.valueOf(editTextPhone.getText());
+                String changed = String.valueOf(changedCheck.isChecked());
+
+                pushMarital(key, maritalStatus, changed);
             }
         });
 
@@ -135,21 +246,21 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextEmail = new EditText(getApplicationContext());
         editTextEmail.setHint("Email");
         layout.addView(editTextEmail);
 
+        final CheckBox changedCheck = new CheckBox(getApplicationContext());
+        changedCheck.setHint("Alert Refugee Center of Change?");
+        layout.addView(changedCheck);
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String phone = String.valueOf(editTextEmail.getText());
+                String changed = String.valueOf(changedCheck.isChecked());
 
-                pushNewEmail(key, phone);
+                pushNewEmail(key, phone, changed);
             }
         });
 
@@ -164,10 +275,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextCity = new EditText(getApplicationContext());
         editTextCity.setHint("Enter City");
         layout.addView(editTextCity);
@@ -176,6 +283,10 @@ public class UpdateInfoPage extends AppCompatActivity {
         editTextAddress.setHint("Enter Address");
         layout.addView(editTextAddress);
 
+        final CheckBox changedCheck = new CheckBox(getApplicationContext());
+        changedCheck.setHint("Alert Refugee Center of Change?");
+        layout.addView(changedCheck);
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -183,9 +294,9 @@ public class UpdateInfoPage extends AppCompatActivity {
                 double longitude = 0.0;
                 double latitude = 0.0;
 
-                String key = String.valueOf(userKey.getText());
                 String city = String.valueOf(editTextCity.getText());
                 String address = String.valueOf(editTextAddress.getText());
+                String checked = String.valueOf(changedCheck.isChecked());
 
                 try {
                     List<Address> addresses = coder.getFromLocationName(address + city, 6);
@@ -206,54 +317,132 @@ public class UpdateInfoPage extends AppCompatActivity {
                     return;
                 }
 
-                pushNewAddress(key, Double.toString(latitude) , Double.toString(longitude));
+                pushNewAddress(key, Double.toString(latitude) , Double.toString(longitude), checked);
             }
         });
 
         builder.show();
     }
 
-    private void pushNewName(String key, String name, String lastName){
+    private void pushNewName(String key, String name, String lastName, String changed){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference setRef = database.getReference("people");
         DatabaseReference keyRef = setRef.child(key);
         DatabaseReference nameRef = keyRef.child("First Name");
         DatabaseReference lastNameRef = keyRef.child("Last Name");
+        DatabaseReference changedRef = keyRef.child("Changed");
 
         nameRef.setValue(name);
         lastNameRef.setValue(lastName);
+        changedRef.setValue(changed);
     }
 
-    private void pushNewPhone(String key, String phone){
+    private void pushNewPhone(String key, String phone, String changed){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference setRef = database.getReference("people");
         DatabaseReference keyRef = setRef.child(key);
         DatabaseReference phoneRef = keyRef.child("Phone Number");
+        DatabaseReference changedRef = keyRef.child("Changed");
 
         phoneRef.setValue(phone);
+        changedRef.setValue(changed);
     }
 
-    private void pushNewEmail(String key, String email){
+    private void pushNewEmail(String key, String email, String changed){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference setRef = database.getReference("people");
         DatabaseReference keyRef = setRef.child(key);
         DatabaseReference emailRef = keyRef.child("Email");
+        DatabaseReference changedRef = keyRef.child("Changed");
 
         emailRef.setValue(email);
+        changedRef.setValue(changed);
     }
 
-    private void pushNewAddress(String key, String latitude, String longitude){
+    private void pushNewAddress(String key, String latitude, String longitude, String changed){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
         DatabaseReference setRef = database.getReference("people");
         DatabaseReference keyRef = setRef.child(key);
         DatabaseReference latRef = keyRef.child("Latitude");
         DatabaseReference longRef = keyRef.child("Longitude");
+        DatabaseReference changedRef = keyRef.child("Changed");
 
         latRef.setValue(latitude);
         longRef.setValue(longitude);
+        changedRef.setValue(changed);
     }
+
+    private void pushChildren(String key, String children, String changed){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference setRef = database.getReference("people");
+        DatabaseReference keyRef = setRef.child(key);
+        DatabaseReference childRef = keyRef.child("Children");
+        DatabaseReference changedRef = keyRef.child("Changed");
+
+        childRef.setValue(children);
+        changedRef.setValue(changed);
+    }
+
+    private void pushMarital(String key, String marital, String changed){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+        DatabaseReference setRef = database.getReference("people");
+        DatabaseReference keyRef = setRef.child(key);
+        DatabaseReference maritalRef = keyRef.child("Marital Status");
+        DatabaseReference changedRef = keyRef.child("Changed");
+
+        maritalRef.setValue(marital);
+        changedRef.setValue(changed);
+    }
+
+    public void sendNotificationToUser() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Notify Refugee Center");
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        final EditText editTextName = new EditText(getApplicationContext());
+        editTextName.setHint("Full Name");
+        layout.addView(editTextName);
+
+        final EditText editTextPhone = new EditText(getApplicationContext());
+        editTextPhone.setHint("Phone Number");
+        layout.addView(editTextPhone);
+
+        final EditText editTextMessage = new EditText(getApplicationContext());
+        editTextMessage.setHint("Message");
+        layout.addView(editTextMessage);
+
+        builder.setView(layout);
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                String name = String.valueOf(editTextName.getText());
+                String phoneNum = String.valueOf(editTextPhone.getText());
+                String message = String.valueOf(editTextMessage.getText());
+
+                FirebaseDatabase ref = FirebaseDatabase.getInstance();
+                DatabaseReference setRef = ref.getReference("notifications");
+
+                Map notification = new HashMap<>();
+                notification.put("name", name);
+                notification.put("phone", phoneNum);
+                notification.put("message", message);
+
+                setRef.push().setValue(notification);
+
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(800);
+            }
+        });
+
+        builder.show();
+    }
+
 }

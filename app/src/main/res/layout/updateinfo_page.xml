@@ -2,26 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <Button
+    <ImageButton
         android:id="@+id/backbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:text="Home"
-        />
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:background="@drawable/crackhouse" />
+
+    <ImageButton
+        android:id="@+id/alertbutton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="40dp"
+        android:layout_width="40dp"
+        android:background="@drawable/redphone" />
 
     <Button
         android:id="@+id/updateName"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Name"
         android:onClick="onUpdateInfoForm"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/updatePhone"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Phone Number"
@@ -32,6 +46,7 @@
 
     <Button
         android:id="@+id/updateEmail"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Email"
@@ -42,6 +57,7 @@
 
     <Button
         android:id="@+id/updateAddress"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -49,5 +65,35 @@
         android:onClick="onUpdateInfoForm"
         android:layout_below="@+id/updateEmail"
         android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/updateChildren"
+        android:background="@drawable/border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Update Children"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updateAddress"
+        android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/updateMarital"
+        android:background="@drawable/border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Update Marital Status"
+        android:onClick="onUpdateInfoForm"
+        android:layout_below="@+id/updateChildren"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/rootRL"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/greentuff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
