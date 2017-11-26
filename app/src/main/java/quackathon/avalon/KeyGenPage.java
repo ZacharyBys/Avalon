@@ -30,13 +30,6 @@ public class KeyGenPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.keygen_page);
 
-        Button KeyGen = (Button) findViewById(R.id.generatekey);
-        KeyGen.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                publishKey(generateKey());
-            }
-        });
-
         Button backbutton = (Button) findViewById(R.id.backbutton);
         backbutton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
@@ -54,11 +47,9 @@ public class KeyGenPage extends AppCompatActivity {
     }
 
 
-    private String generateKey(){
+    private void showKey(String key){
         TextView KeyGen = (TextView) findViewById(R.id.keytext);
-        String key = getKey();
-        KeyGen.setText(key);
-        return key;
+        KeyGen.setText("Your user key is: " + key + ". KEEP THIS KEY SAFE, it will be needed for you to update information");
     }
 
     private String getKey(){
@@ -88,8 +79,9 @@ public class KeyGenPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
+        final TextView userKey = new TextView (getApplicationContext());
+        final String key = getKey();
+        userKey.setText("Your User Key: " + key);
         layout.addView(userKey);
 
         final EditText editTextName = new EditText(getApplicationContext());
@@ -131,7 +123,6 @@ public class KeyGenPage extends AppCompatActivity {
                 double longitude = 0.0;
                 double latitude = 0.0;
 
-                String key = String.valueOf(userKey.getText());
                 String name= String.valueOf(editTextName.getText());
                 String lastName = String.valueOf(editTextLastName.getText());
                 String phoneNum = String.valueOf(editTextPhone.getText());
@@ -161,6 +152,7 @@ public class KeyGenPage extends AppCompatActivity {
                 }
 
                 addInfo(key, name, lastName, phoneNum, email,latitude,longitude,children,marital);
+                showKey(key);
             }
         });
 

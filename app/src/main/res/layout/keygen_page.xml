@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <Button
+
         android:id="@+id/generatekey"
         android:background="@drawable/border"
         android:layout_width="wrap_content"
@@ -14,6 +15,7 @@
         android:layout_centerHorizontal="true" />
 
     <Button
+
         android:id="@+id/backbutton"
         android:background="@drawable/border_home"
         android:layout_width="wrap_content"
@@ -25,9 +27,10 @@
 
     <TextView
         android:id="@+id/keytext"
-        android:layout_width="wrap_content"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/generatekey"
+        android:layout_above="@+id/addInfo"
+        android:textSize="15dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="100dp"
         android:text="" />
@@ -36,11 +39,11 @@
         android:id="@+id/addInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Information"
+        android:text="Register New User"
         android:onClick="onUpdateInfoForm"
         android:layout_marginBottom="50dp"
         android:background="@drawable/border"
-        android:layout_above="@+id/keytext"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
     <ImageView
