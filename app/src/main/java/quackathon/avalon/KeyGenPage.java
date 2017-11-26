@@ -18,7 +18,12 @@ import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -118,7 +123,7 @@ public class KeyGenPage extends AppCompatActivity {
         final String key = getKey();
         userKey.setText("Your User Key: " + key);
         layout.addView(userKey);
-
+        
         final EditText editTextName = new EditText(getApplicationContext());
         editTextName.setHint("First Name");
         layout.addView(editTextName);
@@ -150,7 +155,9 @@ public class KeyGenPage extends AppCompatActivity {
         final EditText editTextMaritalStatus = new EditText(getApplicationContext());
         editTextMaritalStatus.setHint("Enter Marital Status");
         layout.addView(editTextMaritalStatus);
-        
+
+
+
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -165,6 +172,8 @@ public class KeyGenPage extends AppCompatActivity {
                 String city = String.valueOf(editTextCity.getText());
                 String address = String.valueOf(editTextAddress.getText());
                 String children = String.valueOf(editTextChildren.getText());
+
+
                 String marital = String.valueOf(editTextMaritalStatus.getText());
 
                 try {
