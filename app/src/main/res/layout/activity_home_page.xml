@@ -9,26 +9,16 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:src="@drawable/smalllogogreen"
-        android:maxHeight="50sp"
-        android:maxWidth="50sp"
+        android:src="@drawable/logo"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         />
-
-    <Button
-        android:background="@drawable/border"
-        android:id="@+id/keygen"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="Generate"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/updateInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="300dp"
         android:text="Update Your Information"
         android:onClick="onUpdateInfoForm"
         android:background="@drawable/border"
@@ -38,7 +28,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/keygen"
+        android:layout_marginTop="250dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
         android:text="@string/key_title" />

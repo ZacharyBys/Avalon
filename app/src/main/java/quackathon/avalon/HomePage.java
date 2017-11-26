@@ -26,6 +26,7 @@ public class HomePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
+
         Button KeyGen = (Button) findViewById(R.id.keygen);
         KeyGen.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
