@@ -5,43 +5,39 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Random;
 
-public class HomePage extends AppCompatActivity {
+/**
+ * Created by Zachary Bys on 2017-11-25.
+ */
 
+public class LogInPage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_page);
+        setContentView(R.layout.login_page);
 
-        Button KeyGen = (Button) findViewById(R.id.keygen);
-        KeyGen.setOnClickListener(new Button.OnClickListener() {
+        Button loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, KeyGenPage.class);
+                Intent intent = new Intent(LogInPage.this, UpdateInfoPage.class);
                 startActivity(intent);
             }
         });
-
-        Button updateInfo = (Button) findViewById(R.id.updateInfo);
-        updateInfo.setOnClickListener(new Button.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(HomePage.this, LogInPage.class);
-                startActivity(intent);
-            }
-        });
-
     }
+
 
 }
