@@ -21,7 +21,7 @@
         android:layout_marginRight="10dp"
         android:layout_height="40dp"
         android:layout_width="40dp"
-        android:background="@drawable/alert" />
+        android:background="@drawable/redphone" />
 
     <Button
         android:id="@+id/updateName"
