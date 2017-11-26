@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -37,6 +38,7 @@ public class UpdateInfoPage extends AppCompatActivity {
         key = bundle.getString("key");
 
         Button updateName = (Button) findViewById(R.id.updateName);
+        updateName.bringToFront();
         updateName.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateName();
@@ -44,6 +46,7 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updatePhone = (Button) findViewById(R.id.updatePhone);
+        updatePhone.bringToFront();
         updatePhone.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updatePhone();
@@ -51,13 +54,15 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updateEmail = (Button) findViewById(R.id.updateEmail);
+        updateEmail.bringToFront();
         updateEmail.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateEmail();
             }
         });
 
-        Button backbutton = (Button) findViewById(R.id.backbutton);
+        ImageButton backbutton = (ImageButton) findViewById(R.id.backbutton);
+        backbutton.bringToFront();
         backbutton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(UpdateInfoPage.this, HomePage.class);
@@ -66,6 +71,7 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updateAddress = (Button) findViewById(R.id.updateAddress);
+        updateAddress.bringToFront();
         updateAddress.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateAddress();
@@ -73,6 +79,7 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updateChildren = (Button) findViewById(R.id.updateChildren);
+        updateChildren.bringToFront();
         updateChildren.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateChildren();
@@ -80,6 +87,7 @@ public class UpdateInfoPage extends AppCompatActivity {
         });
 
         Button updateMarital = (Button) findViewById(R.id.updateMarital);
+        updateMarital.bringToFront();
         updateMarital.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 updateMarital();

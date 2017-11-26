@@ -33,6 +33,7 @@ public class HomePage extends AppCompatActivity {
         imageview.bringToFront();
 
         Button KeyGen = (Button) findViewById(R.id.keygen);
+        KeyGen.bringToFront();
         KeyGen.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(HomePage.this, KeyGenPage.class);
@@ -41,6 +42,7 @@ public class HomePage extends AppCompatActivity {
         });
 
         Button updateInfo = (Button) findViewById(R.id.updateInfo);
+        updateInfo.bringToFront();
         updateInfo.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(HomePage.this, LogInPage.class);
