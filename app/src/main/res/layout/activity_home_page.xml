@@ -4,13 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    
     <TextView
         android:id="@+id/Avalon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textColor="#000000"
         android:text="Avalon"
         />
@@ -33,11 +34,7 @@
         android:text="Update Your Information"
         android:onClick="onUpdateInfoForm"
         android:background="@drawable/border"
-        android:layout_centerHorizontal="true" />
-        android:layout_below="@+id/addInfo"
-        android:background="@drawable/border"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"/>
+        android:layout_centerHorizontal="true"></Button>
 
     <TextView
         android:id="@+id/textView2"

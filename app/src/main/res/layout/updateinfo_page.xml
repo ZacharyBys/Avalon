@@ -4,6 +4,7 @@
 
     <Button
         android:id="@+id/backbutton"
+        android:background="@drawable/border_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -13,6 +14,7 @@
 
     <Button
         android:id="@+id/updateName"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Name"
@@ -22,6 +24,7 @@
 
     <Button
         android:id="@+id/updatePhone"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Phone Number"
@@ -32,6 +35,7 @@
 
     <Button
         android:id="@+id/updateEmail"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Email"
@@ -42,6 +46,7 @@
 
     <Button
         android:id="@+id/updateAddress"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -51,6 +56,7 @@
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/updateChildren"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -60,6 +66,7 @@
         android:layout_centerHorizontal="true" />
     <Button
         android:id="@+id/updateMarital"
+        android:background="@drawable/border"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -67,5 +74,15 @@
         android:onClick="onUpdateInfoForm"
         android:layout_below="@+id/updateChildren"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/rootRL"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/greentuff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
