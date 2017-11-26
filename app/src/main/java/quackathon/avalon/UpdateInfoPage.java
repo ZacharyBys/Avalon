@@ -26,10 +26,15 @@ import java.util.Random;
  */
 
 public class UpdateInfoPage extends AppCompatActivity {
+
+    private String key;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updateinfo_page);
+        Bundle bundle=getIntent().getExtras();
+        key = bundle.getString("key");
 
         Button updateName = (Button) findViewById(R.id.updateName);
         updateName.setOnClickListener(new Button.OnClickListener() {
@@ -89,10 +94,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextName = new EditText(getApplicationContext());
         editTextName.setHint("First Name");
         layout.addView(editTextName);
@@ -108,7 +109,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String name= String.valueOf(editTextName.getText());
                 String lastName = String.valueOf(editTextLastName.getText());
                 String changed = String.valueOf(changedCheck.isChecked());
@@ -127,10 +127,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextPhone = new EditText(getApplicationContext());
         editTextPhone.setHint("Phone Number");
         layout.addView(editTextPhone);
@@ -142,7 +138,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String phone = String.valueOf(editTextPhone.getText());
                 String changed = String.valueOf(changedCheck.isChecked());
 
@@ -160,10 +155,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextPhone = new EditText(getApplicationContext());
         editTextPhone.setHint("Number of Children");
         layout.addView(editTextPhone);
@@ -175,7 +166,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String children = String.valueOf(editTextPhone.getText());
                 String changed = String.valueOf(changedCheck.isChecked());
 
@@ -193,10 +183,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextPhone = new EditText(getApplicationContext());
         editTextPhone.setHint("Marital Status");
         layout.addView(editTextPhone);
@@ -208,7 +194,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String maritalStatus = String.valueOf(editTextPhone.getText());
                 String changed = String.valueOf(changedCheck.isChecked());
 
@@ -226,10 +211,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
-
         final EditText editTextEmail = new EditText(getApplicationContext());
         editTextEmail.setHint("Email");
         layout.addView(editTextEmail);
@@ -241,7 +222,6 @@ public class UpdateInfoPage extends AppCompatActivity {
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                String key = String.valueOf(userKey.getText());
                 String phone = String.valueOf(editTextEmail.getText());
                 String changed = String.valueOf(changedCheck.isChecked());
 
@@ -259,10 +239,6 @@ public class UpdateInfoPage extends AppCompatActivity {
 
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.VERTICAL);
-
-        final EditText userKey = new EditText (getApplicationContext());
-        userKey.setHint("User Key");
-        layout.addView(userKey);
 
         final EditText editTextCity = new EditText(getApplicationContext());
         editTextCity.setHint("Enter City");
@@ -283,7 +259,6 @@ public class UpdateInfoPage extends AppCompatActivity {
                 double longitude = 0.0;
                 double latitude = 0.0;
 
-                String key = String.valueOf(userKey.getText());
                 String city = String.valueOf(editTextCity.getText());
                 String address = String.valueOf(editTextAddress.getText());
                 String checked = String.valueOf(changedCheck.isChecked());

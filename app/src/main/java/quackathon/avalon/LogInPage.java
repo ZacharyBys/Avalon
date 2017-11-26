@@ -32,6 +32,7 @@ import java.util.Random;
 
 public class LogInPage extends AppCompatActivity {
     private boolean shouldLogin;
+    private String key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,7 @@ public class LogInPage extends AppCompatActivity {
                     alertDialogBuilder.setPositiveButton("Enter", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             Intent intent = new Intent(LogInPage.this, UpdateInfoPage.class);
+                            intent.putExtra("key", key);
                             startActivity(intent);} });
                     alertDialogBuilder.show();
 
@@ -62,6 +64,7 @@ public class LogInPage extends AppCompatActivity {
         });
 
         EditText enteredKey = (EditText)findViewById(R.id.userKey);
+        enteredKey.bringToFront();
         enteredKey.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
@@ -91,6 +94,7 @@ public class LogInPage extends AppCompatActivity {
                         DataSnapshot setRef = child.child("First Name");
                         if (setRef.getValue() != null) {
                             shouldLogin = true;
+                            key = enteredUserKey;
                         }
                     }
                 }

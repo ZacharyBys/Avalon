@@ -5,6 +5,7 @@
     android:layout_height="fill_parent">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -13,6 +14,17 @@
         android:scaleX="1.5"
         android:scaleY="1.5"
         />
+
+    <Button
+
+        android:background="@drawable/border"
+        android:id="@+id/keygen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="Register"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/updateInfo"
