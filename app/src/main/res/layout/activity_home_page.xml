@@ -4,16 +4,14 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    
-    <TextView
-        android:id="@+id/Avalon"
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textSize="30sp"
-        android:textColor="#000000"
-        android:text="Avalon"
+        android:layout_marginTop="50dp"
+        android:src="@drawable/logo"
+        android:maxHeight="50sp"
+        android:maxWith="50sp"
         />
 
     <Button
