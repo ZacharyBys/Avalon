@@ -3,6 +3,7 @@ package quackathon.avalon;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
@@ -25,7 +26,12 @@ import java.util.Random;
  * Created by Zachary Bys on 2017-11-25.
  */
 
+
 public class KeyGenPage extends AppCompatActivity {
+
+    public Typeface ralewayReg;
+    public Typeface ralewayBold;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +53,21 @@ public class KeyGenPage extends AppCompatActivity {
                 onAddInfoForm();
             }
         });
+
+        ralewayReg = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Regular.ttf");
+        ralewayBold = Typeface.createFromAsset(getAssets(),
+                "fonts/Raleway-Bold.ttf");
+
+        addInfo.setTypeface(ralewayBold);
     }
 
 
     private void showKey(String key){
         TextView KeyGen = (TextView) findViewById(R.id.keytext);
         KeyGen.setText("Your user key is: " + key + ". KEEP THIS KEY SAFE, it will be needed for you to update information");
+        KeyGen.bringToFront();
+        KeyGen.setTypeface(ralewayReg);
     }
 
     private String getKey(){

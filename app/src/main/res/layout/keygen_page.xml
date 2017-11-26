@@ -18,9 +18,9 @@
         android:id="@+id/keytext"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/addInfo"
-        android:layout_marginTop="-100dp"
-        android:textSize="15dp"
+        android:layout_above="@+id/addInfo"
+        android:layout_marginBottom="-250dp"
+        android:textSize="25dp"
         android:layout_centerHorizontal="true"
         android:text="" />
 
@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:text="Register New User"
         android:onClick="onUpdateInfoForm"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="400dp"
         android:background="@drawable/border"
         android:layout_centerHorizontal="true" />
 
