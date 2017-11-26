@@ -40,6 +40,7 @@ public class LogInPage extends AppCompatActivity {
         setContentView(R.layout.login_page);
 
         Button loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton.bringToFront();
         loginButton.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
                 if (shouldLogin) {
