@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:id="@+id/Avalon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:text="Avalon"
+        />
+
+    <Button
+        android:background="@drawable/border"
+        android:id="@+id/keygen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="Generate"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/addInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Information"
+        android:onClick="onUpdateInfoForm"
+        android:background="@drawable/border"
+        android:layout_marginTop="140dp"
+
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/updateInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Update Your Information"
+        android:onClick="onUpdateInfoForm"
+<<<<<<< HEAD
+        android:background="@drawable/border"
+        android:layout_centerHorizontal="true" />
+=======
+        android:layout_below="@+id/addInfo"
+        android:background="@drawable/border"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"/>
+>>>>>>> b2e1eb68ccf27af3f3b7bff5ee570a28ec8c6a0c
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/keygen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        android:text="@string/key_title" />
+
+    <ImageView
+        android:id="@+id/rootRL"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/greentuff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
