@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -149,7 +150,7 @@ public class KeyGenPage extends AppCompatActivity {
         final EditText editTextMaritalStatus = new EditText(getApplicationContext());
         editTextMaritalStatus.setHint("Enter Marital Status");
         layout.addView(editTextMaritalStatus);
-
+        
         builder.setView(layout);
         builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
