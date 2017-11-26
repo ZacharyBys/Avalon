@@ -10,6 +10,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:src="@drawable/smalllogogreen"
+        android:maxHeight="50sp"
+        android:maxWidth="50sp"
         />
 
     <Button
