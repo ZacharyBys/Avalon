@@ -14,17 +14,27 @@
         android:scaleType="fitXY"
         android:scaleX="0.7"
         android:scaleY="0.7"/>
-
-
+  
+    <TextView
+        android:id="@+id/titletext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-23dp"
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:textSize="45dp"
+        android:textColor="@color/white"
+        android:text="Avalon" />
+  
     <Button
         android:background="@drawable/border"
         android:id="@+id/keygen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="50dp"
         android:text="Register"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"/>
 
     <Button
         android:id="@+id/updateInfo"
@@ -32,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/keygen"
         android:layout_marginBottom="20dp"
-        android:text="Update Your Information"
+        android:text="Login"
         android:onClick="onUpdateInfoForm"
         android:background="@drawable/border"
         android:layout_centerHorizontal="true"></Button>
