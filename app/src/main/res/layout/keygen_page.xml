@@ -30,4 +30,15 @@
         android:layout_marginBottom="100dp"
         android:text="" />
 
+    <Button
+        android:id="@+id/addInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Information"
+        android:onClick="onUpdateInfoForm"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/border"
+        android:layout_above="@+id/keytext"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
