@@ -1,9 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-
-
-
 
     <EditText
         android:id="@+id/userKey"
@@ -12,6 +9,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="242dp"
+        android:background="@drawable/textedit"
+        android:maxLength="6"
         android:gravity="center"
         android:hint="Enter User Key" />
 

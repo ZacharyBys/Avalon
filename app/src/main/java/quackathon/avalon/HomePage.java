@@ -30,6 +30,7 @@ public class HomePage extends AppCompatActivity {
         ImageView imageview = (ImageView) findViewById(R.id.logo);
         imageview.bringToFront();
 
+
         Button KeyGen = (Button) findViewById(R.id.keygen);
         KeyGen.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {

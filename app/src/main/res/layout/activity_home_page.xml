@@ -10,12 +10,13 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:src="@drawable/smalllogogreen"
-        android:maxHeight="50sp"
-        android:maxWidth="50sp"
+        android:src="@drawable/logo"
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         />
 
     <Button
+
         android:background="@drawable/border"
         android:id="@+id/keygen"
         android:layout_width="wrap_content"
@@ -39,7 +40,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/keygen"
+        android:layout_marginTop="250dp"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="14dp"
         android:text="@string/key_title" />
