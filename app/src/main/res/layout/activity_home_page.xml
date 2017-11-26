@@ -5,6 +5,7 @@
     android:layout_height="fill_parent">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -20,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
-        android:text="Generate"
+        android:text="Register"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
 
@@ -28,7 +29,7 @@
         android:id="@+id/updateInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="300dp"
         android:text="Update Your Information"
         android:onClick="onUpdateInfoForm"
         android:background="@drawable/border"
