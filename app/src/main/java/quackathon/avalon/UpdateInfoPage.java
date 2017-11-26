@@ -1,12 +1,14 @@
 package quackathon.avalon;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -70,6 +74,14 @@ public class UpdateInfoPage extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(UpdateInfoPage.this, HomePage.class);
                 startActivity(intent);
+            }
+        });
+
+        ImageButton alertbutton = (ImageButton) findViewById(R.id.alertbutton);
+        alertbutton.bringToFront();
+        alertbutton.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                sendNotificationToUser();
             }
         });
 
@@ -386,6 +398,51 @@ public class UpdateInfoPage extends AppCompatActivity {
 
         maritalRef.setValue(marital);
         changedRef.setValue(changed);
+    }
+
+    public void sendNotificationToUser() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Notify Refugee Center");
+
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+
+        final EditText editTextName = new EditText(getApplicationContext());
+        editTextName.setHint("Full Name");
+        layout.addView(editTextName);
+
+        final EditText editTextPhone = new EditText(getApplicationContext());
+        editTextPhone.setHint("Phone Number");
+        layout.addView(editTextPhone);
+
+        final EditText editTextMessage = new EditText(getApplicationContext());
+        editTextMessage.setHint("Message");
+        layout.addView(editTextMessage);
+
+        builder.setView(layout);
+        builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+
+                String name = String.valueOf(editTextName.getText());
+                String phoneNum = String.valueOf(editTextPhone.getText());
+                String message = String.valueOf(editTextMessage.getText());
+
+                FirebaseDatabase ref = FirebaseDatabase.getInstance();
+                DatabaseReference setRef = ref.getReference("notifications");
+
+                Map notification = new HashMap<>();
+                notification.put("name", name);
+                notification.put("phone", phoneNum);
+                notification.put("message", message);
+
+                setRef.push().setValue(notification);
+
+                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                v.vibrate(800);
+            }
+        });
+
+        builder.show();
     }
 
 }
