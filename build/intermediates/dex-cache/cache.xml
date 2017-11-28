@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\d321b6c60058aa239659759c8e3ae5b32461be3a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_52ad05e819fc814c686a2fb4e2a96867db9c75d9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\1c7450fdb875050399778beb3f2a5e2a69d90994\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_e184f767855650616953d2394ab3869312bc49e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\774fec33c3a36cd06c6d586db61c2e0f99db3fce\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_50703004d6b1073f46019e9e9347b0a32c7e5d19.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\051290421287fc06540d1ebce76b2efc3e50b20c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_90ffa431db27c7fa0eba391be30654d952e896c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\220c1c41a01dabbd5802b02bba4099672d8b2574\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_33d80dbd726098c99ea8872f93e6732d3a5cb4db.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\96571339d8dbe22b9462945cfe3b30d0dab9c446\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_6d578cd2a60f97ad0667443f4c600dd642a44051.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\d13b751ec81f8a910322c46da90229cd235c47ba\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_5f0973634515b72e7ad53f8d2d1b9f7c8abf0ed6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\antho\.android\build-cache\58357bb9da1b74c1567f4d1bbce78c29972a4e07\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="C:\Users\antho\AndroidStudioProjects\Avalon\app\build\intermediates\pre-dexed\debug\classes_de1cca30f9e667aa968f101c41658c84df2700b0.jar" />
+    </item>
+
+</items>
